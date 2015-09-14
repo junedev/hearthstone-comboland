@@ -1,0 +1,21 @@
+{
+  "name": "hearthstone-comboland",
+  "version": "1.0.0",
+  "homepage": "https://github.com/junedev/hearthstone-comboland",
+  "authors": [
+    "junedev <catherinejune86@gmail.com>"
+  ],
+  "description": "Share and discuss your favourite combination of cards in Blizzards Hearthstone.",
+  "license": "GPL-3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5",
+    "bootstrap-sass": "~3.3.5"
+  }
+}

@@ -15,6 +15,7 @@ app.use(logger('dev'));
 app.set("views", "./public");
 app.engine('html', require('ejs').renderFile);
 app.use(express.static(__dirname + '/public'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 mongoose.connect(databaseURL);
 
@@ -23,7 +24,6 @@ app.get("/", function(req,res){
 })
 
 app.use(require('./config/routes'));
-
 
 app.listen(port, function(err){
   if(err) console.log(err);
