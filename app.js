@@ -2,10 +2,9 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 var logger = require("morgan");
-var passport   = require("passport");
-var mongoose = require("mongoose");
-var databaseURL = process.env.MONGOLAB_URI || 'mongodb://localhost/hearthstone-comboland';
+var passport = require("passport");
 var port = process.env.PORT || 9000;
+var database = require("./database");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -17,7 +16,7 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.static(__dirname + '/public'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
-mongoose.connect(databaseURL);
+database.initialize();
 
 app.get("/", function(req,res){
  res.render("index.html");
