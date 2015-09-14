@@ -8,11 +8,13 @@
   <title>Hearthstone Comboland</title>
 </head>
 <body>
+  <header ng-include="'templates/nav.html'" ></header>
   Index page rendered
-  Angular working: {{1+4}}
+  <main ng-view></main>
   <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
   <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
   <script type="text/javascript" src="./js/app.js"></script>
 </body>
 </html>
