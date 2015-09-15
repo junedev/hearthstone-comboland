@@ -11,7 +11,7 @@
   <title>Hearthstone Comboland</title>
 
 </head>
-<body>
+<body ng-controller="UserController as user">
 
   <header ng-include="'templates/nav.html'" ></header>
 
@@ -23,12 +23,20 @@
   <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
   <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
   <script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="../bower_components/angular-jwt/dist/angular-jwt.js"></script>
 
   <!-- Custom -->
   <script type="text/javascript" src="./js/app.js"></script>
+
+  <script type="text/javascript" src="js/services/tokenService.js"></script>
+  <script type="text/javascript" src="js/services/authInterceptor.js"></script>
+
   <script type="text/javascript" src="./js/resources/combo.js"></script>
   <script type="text/javascript" src="./js/resources/card.js"></script>
+  <script type="text/javascript" src="./js/resources/user.js"></script>
+
   <script type="text/javascript" src="./js/controllers/comboController.js"></script>
+  <script type="text/javascript" src="./js/controllers/userController.js"></script>
 
 </body>
 </html>

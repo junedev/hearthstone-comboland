@@ -1,4 +1,7 @@
-angular.module("comboApp",["ngRoute","ngResource"])
+angular.module("comboApp",["ngRoute","ngResource",'angular-jwt'])
+  .config(function($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptor');
+  })
   .config(MainRouter);
 
 MainRouter.$inject = ['$routeProvider', '$locationProvider'];
@@ -12,5 +15,8 @@ function MainRouter($routeProvider, $locationProvider){
     .when('/combos/new', {
       templateUrl: 'templates/new.html',
       controller: 'ComboController as combos'
+    })
+    .when('/login', {
+      templateUrl: 'templates/login.html'
     })
 }

@@ -25,17 +25,6 @@ function ComboController(Combo, Card){
     self.newCombo.cards.push(newCard);
   }
 
-  // this.allCards = [];
-  // this.all = [];
-  // this.addCombo = addCombo;
-  // this.getCards = getCards;
-  // this.deleteCombo = deleteCombo;
-  // this.addCard = addCard;
-
-  // self.all = Combo.query();
-
-  // self.classes = Combo.classes();
-
   self.addCombo = function(){
     Combo.save(self.newCombo, function(combo) {
       self.all.unshift(combo);

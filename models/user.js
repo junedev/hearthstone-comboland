@@ -6,14 +6,14 @@ var userSchema = new mongoose.Schema({
   password: {type: String, required: true}
 })
 
-// userSchema.set('toJSON', {
-//   transform: function(doc, ret, options) {
-//     var returnJson = {
-//       id: ret._id
-//     };
-//     return returnJson;
-//   }
-// });
+userSchema.set('toJSON', {
+  transform: function(doc, ret, options) {
+    var returnJson = {
+      id: ret._id
+    };
+    return returnJson;
+  }
+});
 
 userSchema.methods.encrypt = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
