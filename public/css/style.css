@@ -5795,5 +5795,12 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+.big-card {
+  width: 200px;
+  height: auto; }
+
+@media (min-width: 992px) {
+  .small-field {
+    width: 50%; } }
 
 /*# sourceMappingURL=style.css.map */

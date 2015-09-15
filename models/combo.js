@@ -3,8 +3,9 @@ var Card = require("../models/card");
 
 var comboSchema = new mongoose.Schema({
   name: String,
-  className: String,
-  cards: [Card],
+  description: String,
+  hero : mongoose.Schema.Types.Mixed,
+  cards: [Card.schema],
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 

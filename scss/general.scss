@@ -1,0 +1,10 @@
+.big-card {
+  width: 200px;
+  height: auto;
+}
+
+@media (min-width: $screen-md-min) {
+  .small-field {
+    width: 50%;
+  }
+}

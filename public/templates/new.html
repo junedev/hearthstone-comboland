@@ -1,1 +1,39 @@
-Add combo
+<div class="row" ng-hide="hideHeroSelection">
+  <div class="col-sx-12">
+<h1>Build new combination</h1>
+    <label>Name for new card combination</label>
+    <input type="text" ng-model="combos.newCombo.name" class="form-control small-field">
+    <h2>Select a hero</h2>
+    <span ng-repeat="hero in combos.heros">
+      <img ng-src="{{hero.img}}" ng-click="combos.newCombo.hero=hero" class="big-card">
+    </span>
+    <button ng-click="hideHeroSelection=true; combos.getCards();" class="btn btn-primary">Next</button>
+  </div>
+</div>
+<div class="row" ng-show="hideHeroSelection">
+  <div class="col-md-4 col-sx-12">
+  <h1>Build new combination</h1>
+    <select ng-model="cardIndex" class="form-control">
+      <option ng-repeat="card in combos.cards track by $index" value="{{$index}}"> {{card.name}} </option>
+    </select>
+    <div ng-show="cardIndex">
+      <img ng-src="{{combos.cards[cardIndex].img}}" class="big-card">
+    </div>
+    <button ng-click="combos.addCard(cardIndex); cardIndex='';" class="btn btn-primary">Add card</button>
+  </div>
+  <div class="col-md-4 col-sx-12">
+    <label>Description</label>
+    <textarea ng-model="combos.newCombo.description" class="form-control"></textarea>
+  </div>
+  <div class="col-md-4 col-sx-12">
+    <h1>Preview</h1>
+    <h2>{{combos.newCombo.name}}</h2>
+    <h3>{{combos.newCombo.hero.playerClass}}</h3>
+    <span ng-repeat="card in combos.newCombo.cards">
+      <img ng-src="{{card.img}}" class="big-card">
+    </span>
+    <p>{{combos.newCombo.description}}</p>
+    <button class="btn btn-primary" ng-click="combos.addCombo()">Submit</button>
+    {{combos.newCombo}}
+  </div>
+</div>

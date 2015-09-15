@@ -6,8 +6,8 @@ var passport = require("passport");
 var port = process.env.PORT || 9000;
 var database = require("./database");
 
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(logger('dev'));
 

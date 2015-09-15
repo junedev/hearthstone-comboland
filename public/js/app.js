@@ -1,4 +1,4 @@
-angular.module("comboApp",["ngRoute"])
+angular.module("comboApp",["ngRoute","ngResource"])
   .config(MainRouter);
 
 MainRouter.$inject = ['$routeProvider', '$locationProvider'];
