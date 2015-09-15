@@ -2,8 +2,8 @@ var Combo = require('../models/combo');
 var RawCard = require('../models/rawCard');
 
 function getAll(req, res) {
-  RawCard.find({}, function(err, cards){
-    res.status(200).send(cards);
+  Combo.find({}, function(err, combos){
+    res.status(200).send(combos);
   });
 }
 

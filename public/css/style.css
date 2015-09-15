@@ -5799,6 +5799,10 @@ button.close {
   width: 200px;
   height: auto; }
 
+.small-card {
+  width: 150px;
+  height: auto; }
+
 @media (min-width: 992px) {
   .small-field {
     width: 50%; } }

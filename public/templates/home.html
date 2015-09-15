@@ -1,1 +1,14 @@
-All combos loaded
+<div class="row">
+  <div class="col-md-4 col-sx-12" ng-repeat="combo in combos.all">
+    <div class="well">
+      <h3> {{ combo.name }}</h3>
+      <p>Class: {{ combo.hero.playerClass }}</p>
+      <p>{{ combo.description }}</p>
+      <span ng-repeat="card in combo.cards">
+        <img ng-src="{{card.img}}" class="small-card">
+      </span>
+<!--       <button ng-show="combo.user == user.currentUser.id"class="btn btn-danger pull-right" ng-click="combos.deleteCombo(combo)">Delete</button>
+      <a href="/combos/{{combo._id }}" class="btn btn-primary pull-right">Details</a> -->
+    </div>
+  </div>
+</div>

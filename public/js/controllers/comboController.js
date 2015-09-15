@@ -5,6 +5,7 @@ ComboController.$inject = ["Combo","Card"];
 
 function ComboController(Combo, Card){
   var self = this;
+  self.all = Combo.query();
   self.cards = [];
   self.heros = [];
   self.newCombo = {cards:[]};
@@ -37,6 +38,7 @@ function ComboController(Combo, Card){
 
   self.addCombo = function(){
     Combo.save(self.newCombo, function(combo) {
+      self.all.unshift(combo);
       self.newCombo = {cards: []};
       window.location.href = "/";
     });
