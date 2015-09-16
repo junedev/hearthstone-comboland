@@ -1,15 +1,107 @@
+body {
+  background-image: url("/images/body-content.jpg");
+  background-repeat: repeat-y;
+  background-size: contain;
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1, h2, h3, .navbar-default a {
+  font-family: 'Miltonian Tattoo', cursive;
+}
+
+.adjust-margin {
+  margin-top: 5px;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.navbar-default {
+  text-shadow: 0px 0px 6px #000;
+  margin: 30px 0;
+  background: none;
+  border: none;
+  background-image: url("/images/nav-bg3.png");
+  background-repeat: no-repeat;
+  background-size: 100% $navbar-height;
+
+  a.navbar-brand {
+    font-size: ceil(($font-size-base * 2.2));
+  }
+
+  a {
+    font-size: ceil(($font-size-base * 1.5));
+  }
+@media (max-width: $screen-sm-min){
+  a.navbar-brand {
+    font-size: 25px;
+  }
+}
+}
+
+
+
+
 .big-card {
+  margin-top: -20px;
   width: 200px;
   height: auto;
 }
 
 .small-card {
+  margin-top: -20px;
   width: 150px;
   height: auto;
 }
+
+.panel {
+  border: 8px solid #dec79b;
+  border-width: 17px 20px;
+  border-image: url("/images/artwork-frameV2.png") 17 20 stretch;
+  background: rgba(255,255,255,0.2);
+  position: relative;
+}
+
+.voting {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  p, strong { 
+    font-size: ceil(($font-size-base * 2));
+    height: 30px;
+    line-height: 30px;
+    margin-top: -5px;
+  }
+  .arrow {
+    height: 30px;
+    width: 40px;
+  }
+}
+
 
 @media (min-width: $screen-md-min) {
   .small-field {
     width: 50%;
   }
+
+  .move-up {
+    float: right;
+  }
+
+  .navbar-default {
+    padding-right: 10px;
+    padding-left: 20px;
+  }
+
+}
+
+.no-styling {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
 }

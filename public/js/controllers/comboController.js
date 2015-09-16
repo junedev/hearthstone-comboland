@@ -24,6 +24,7 @@ function ComboController(Combo, Card, TokenService){
     var card = self.currentCard;
     var newCard = {name: card.name, flavor: card.flavor, img: card.img, cardSet:card.cardSet}
     self.newCombo.cards.push(newCard);
+    self.currentCard = null;
   }
 
   self.addCombo = function(){
@@ -36,9 +37,11 @@ function ComboController(Combo, Card, TokenService){
   }
 
   self.rate = function(combo,number){
-    Combo.update({id: combo._id}, {$inc:{rating: number}},function(){
-      self.all = Combo.query();
-    })
+    if(self.currentUserId()){
+      Combo.update({id: combo._id}, {$inc:{rating: number}},function(){
+        self.all = Combo.query();
+      })
+    }
   }
 
   self.addComment = function(combo, text) {

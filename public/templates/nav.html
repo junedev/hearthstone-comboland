@@ -1,16 +1,16 @@
-<nav class="navbar navbar-default"> 
+<nav class="navbar navbar-default" role="navigation"> 
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+      <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed=!navCollapsed">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Heathstone Comboland</a>
+      <a class="navbar-brand" href="/#/">Heathstone Comboland</a>
     </div>
 
-    <div class="collapse navbar-collapse" id="navbar-collapse-1">
-      <ul class="nav navbar-nav">
+    <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+      <ul class="nav navbar-nav navbar-right">
         <li><a href="/#/">All combos</a></li>
         <li ng-show="user.isLoggedIn()"><a href="#/combos/new">Add combo</a></li>
         <li ng-hide="user.isLoggedIn()"><a href="#/login">Login/Signup</a></li>

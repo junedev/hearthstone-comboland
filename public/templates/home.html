@@ -1,25 +1,27 @@
-<div class="row">
-  <div class="col-md-4 col-sx-12" ng-repeat="combo in combos.all">
-    <div class="well">
-      <h3> {{ combo.name }}</h3>
-      <p>Class: {{ combo.hero.playerClass }}</p>
-      <p>{{ combo.description }}</p>
-      <span ng-repeat="card in combo.cards">
-        <img ng-src="{{card.img}}" class="small-card">
-      </span>
-      <div>
-      <button ng-click="combos.rate(combo,1)" class="btn btn-primary">Upvote</button>
-      <p>{{ combo.rating}}</p>
-      <button ng-click="combos.rate(combo,-1)" class="btn btn-primary">Downvote</button>
-      </div>
-      <p ng-repeat="comment in combo.comments">
-      {{comment.text}}
-      </p>
-<!--       <button ng-show="combo.user == user.currentUser.id"class="btn btn-danger pull-right" ng-click="combos.deleteCombo(combo)">Delete</button>
-      <a href="/combos/{{combo._id }}" class="btn btn-primary pull-right">Details</a> -->
+<div class="col-md-4 col-sx-12 move-up clearfix" ng-repeat="combo in combos.all">
+  <div class="panel clearfix">
+    <h2 class="adjust-margin"> {{ combo.name }}</h2>
+    <h3 class="adjust-margin">Class: {{ combo.hero.playerClass }}</h3>
+    <span ng-repeat="card in combo.cards">
+      <img ng-src="{{card.img}}" class="small-card">
+    </span>
+    <p>{{combo.description}}</p>
+
+    <div class="voting">
+      <button ng-click="combos.rate(combo,1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling"><img src="/images/arrow-up.png" alt="Upvote" class="arrow"></button>
+      <p class="no-margin"><strong>{{combo.rating}}</strong></p>
+      <a ng-click="combos.rate(combo,-1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus"><span><img src="/images/arrow-down.png" alt="Downvote" class="arrow"></span></a>
     </div>
+
+    <strong>
+      <a href="#"> {{combo.comments.length}} Comment(s) </a>
+    </strong>
+    <a href="#" class="pull-right"><i>Created by user xyz</i></a> 
+  </div>
+  <div ng-if="false">
     <label>Add comment</label>
     <textarea ng-model="text" class="form-control"></textarea>
     <button ng-click="combos.addComment(combo,text)" class="btn btn-primary">Submit</button>
   </div>
 </div>
+
