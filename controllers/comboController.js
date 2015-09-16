@@ -24,8 +24,21 @@ function createCombo(req, res){
   })
 }
 
+function updateCombo(req, res){
+  var id = req.params.id;
+  Combo.findByIdAndUpdate(id, req.body, function(err){
+    if (err) {
+      console.log(err);
+      return res.status(500).send({message: "Combo could not be updated."});
+    } else {
+      return res.status(200).send({message: "Combo updated."});
+    }
+  })
+}
+
 module.exports = {
   getAll: getAll,
   getHeros: getHeros,
-  createCombo: createCombo
+  createCombo: createCombo,
+  updateCombo: updateCombo
 }

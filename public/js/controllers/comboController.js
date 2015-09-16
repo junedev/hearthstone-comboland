@@ -8,7 +8,7 @@ function ComboController(Combo, Card){
   self.all = Combo.query();
   self.cards = [];
   self.heros = [];
-  self.newCombo = {cards:[]};
+  self.newCombo = {cards:[], rating:0};
 
   self.getHeros = function(){ self.heros = Combo.heros(); }
   self.getHeros();
@@ -28,9 +28,15 @@ function ComboController(Combo, Card){
   self.addCombo = function(){
     Combo.save(self.newCombo, function(combo) {
       self.all.unshift(combo);
-      self.newCombo = {cards: []};
+      self.newCombo = {cards: [], rating:0};
       window.location.href = "/";
     });
+  }
+
+  self.rate = function(combo,number){
+    Combo.update({id: combo._id}, {$inc:{rating: number}},function(){
+      self.all = Combo.query();
+    })
   }
 
   // function deleteCombo(combo){

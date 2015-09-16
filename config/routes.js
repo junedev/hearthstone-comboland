@@ -12,6 +12,9 @@ router.route('/combos')
   .get(comboController.getAll)
   .post(comboController.createCombo)
 
+router.route('/combos/:id')
+  .put(comboController.updateCombo)
+
 router.route('/cards/:className')
   .get(cardController.getCards)
 

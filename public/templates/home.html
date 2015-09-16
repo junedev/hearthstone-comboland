@@ -7,6 +7,11 @@
       <span ng-repeat="card in combo.cards">
         <img ng-src="{{card.img}}" class="small-card">
       </span>
+      <div>
+      <button ng-click="combos.rate(combo,1)" class="btn btn-primary">Upvote</button>
+      <p>{{ combo.rating}}</p>
+      <button ng-click="combos.rate(combo,-1)" class="btn btn-primary">Downvote</button>
+      </div>
 <!--       <button ng-show="combo.user == user.currentUser.id"class="btn btn-danger pull-right" ng-click="combos.deleteCombo(combo)">Delete</button>
       <a href="/combos/{{combo._id }}" class="btn btn-primary pull-right">Details</a> -->
     </div>
