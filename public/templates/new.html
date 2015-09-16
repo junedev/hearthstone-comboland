@@ -13,17 +13,16 @@
 <div class="row" ng-show="hideHeroSelection">
   <div class="col-md-4 col-sx-12">
   <h1>Build new combination</h1>
-    <select ng-model="combos.currentCard" class="form-control">
-      <option ng-repeat="card in combos.cards track by $index" value="{{card}}"> {{card.name}} </option>
+    <select ng-model="selectedCardIndex" class="form-control" ng-change="combos.currentCard=combos.cards[selectedCardIndex];searchedCard='';">
+      <option ng-repeat="card in combos.cards track by $index" value="{{$index}}"> {{card.name}} </option>
     </select>
 
-    <input type="text" ng-model="combos.currentCard" typeahead="card as card.name for card in combos.cards | filter:{name:$viewValue} | limitTo:8" typeahead-template-url="templates/customTypeahead.html" class="form-control">
+    <input type="text" ng-model="searchedCard" typeahead="card as card.name for card in combos.cards | filter:{name:$viewValue} | limitTo:8" typeahead-template-url="templates/customTypeahead.html" typeahead-on-select="combos.currentCard=searchedCard; selectedCardIndex='';" class="form-control">
 
-    <div ng-show="cardIndex || combos.currentCard"> 
-<!--       <img ng-src="{{combos.cards[cardIndex].img}}" class="big-card"> -->
+    <div ng-show="combos.currentCard.img">
       <img ng-src="{{combos.currentCard.img}}" class="big-card">
     </div>
-    <button ng-click="combos.addCard(cardIndex); cardIndex='';" class="btn btn-primary">Add card</button>
+    <button ng-click="combos.addCard(); selectedCardIndex=''; searchedCard=''" class="btn btn-primary">Add card</button>
   </div>
   <div class="col-md-4 col-sx-12">
     <label>Description</label>
