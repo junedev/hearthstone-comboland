@@ -1,4 +1,4 @@
-angular.module("comboApp",["ngRoute","ngResource",'angular-jwt'])
+angular.module("comboApp",["ngRoute","ngResource",'angular-jwt','ui.bootstrap'])
   .config(function($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
   })

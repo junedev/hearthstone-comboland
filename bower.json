@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "angular": "~1.4.5",
+    "angular-bootstrap": "~0.13.4",
     "angular-jwt": "~0.0.9",
     "angular-resource": "~1.4.5",
     "angular-route": "~1.4.5",

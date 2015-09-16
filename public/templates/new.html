@@ -16,6 +16,12 @@
     <select ng-model="cardIndex" class="form-control">
       <option ng-repeat="card in combos.cards track by $index" value="{{$index}}"> {{card.name}} </option>
     </select>
+
+
+    <h4>Typeahead</h4>
+    <pre>Model: {{combos.selected | json}}</pre>
+    <input type="text" ng-model="combos.selected" typeahead="state as state.name for state in combos.statesWithFlags | filter:{name:$viewValue}" typeahead-template-url="customTemplate.html" class="form-control">
+
     <div ng-show="cardIndex">
       <img ng-src="{{combos.cards[cardIndex].img}}" class="big-card">
     </div>
@@ -34,6 +40,5 @@
     </span>
     <p>{{combos.newCombo.description}}</p>
     <button class="btn btn-primary" ng-click="combos.addCombo()">Submit</button>
-    {{combos.newCombo}}
   </div>
 </div>
