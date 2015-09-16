@@ -6,12 +6,12 @@ UserController.$inject = ['User','TokenService','$window']
 function UserController(User, TokenService, $window) {
   var self = this;
 
-  self.user = {};
+  self.user = null;
   self.message = null;
 
   function showMessage(res) {
       self.message = res.data.message;
-      self.user = {};
+      self.user = null;
   }
 
   function redirect(res){
@@ -28,7 +28,7 @@ function UserController(User, TokenService, $window) {
 
   self.logout = function() {
     TokenService.removeToken();
-    self.user = {};
+    self.user = null;
   }
 
   self.isLoggedIn = function() {

@@ -12,8 +12,14 @@
       <p>{{ combo.rating}}</p>
       <button ng-click="combos.rate(combo,-1)" class="btn btn-primary">Downvote</button>
       </div>
+      <p ng-repeat="comment in combo.comments">
+      {{comment.text}}
+      </p>
 <!--       <button ng-show="combo.user == user.currentUser.id"class="btn btn-danger pull-right" ng-click="combos.deleteCombo(combo)">Delete</button>
       <a href="/combos/{{combo._id }}" class="btn btn-primary pull-right">Details</a> -->
     </div>
+    <label>Add comment</label>
+    <textarea ng-model="text" class="form-control"></textarea>
+    <button ng-click="combos.addComment(combo,text)" class="btn btn-primary">Submit</button>
   </div>
 </div>

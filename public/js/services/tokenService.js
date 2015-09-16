@@ -33,7 +33,7 @@ function TokenService($window, jwtHelper) {
       return false;
     }
   }
-
+  
   return this;
 
 }

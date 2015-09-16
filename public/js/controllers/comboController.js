@@ -1,9 +1,9 @@
 angular.module("comboApp")
   .controller("ComboController", ComboController);
 
-ComboController.$inject = ["Combo","Card"];
+ComboController.$inject = ["Combo","Card","TokenService"];
 
-function ComboController(Combo, Card){
+function ComboController(Combo, Card, TokenService){
   var self = this;
   self.all = Combo.query();
   self.cards = [];
@@ -26,6 +26,7 @@ function ComboController(Combo, Card){
   }
 
   self.addCombo = function(){
+    self.newCombo.user = self.currentUserId();
     Combo.save(self.newCombo, function(combo) {
       self.all.unshift(combo);
       self.newCombo = {cards: [], rating:0};
@@ -37,6 +38,23 @@ function ComboController(Combo, Card){
     Combo.update({id: combo._id}, {$inc:{rating: number}},function(){
       self.all = Combo.query();
     })
+  }
+
+  self.addComment = function(combo, text) {
+    var comment = {};
+    comment.user = self.currentUserId();
+    comment.text = text;
+    Combo.update({id: combo._id}, {$push: {comments: comment}}, function(){
+      self.all = Combo.query();
+    })
+  }
+
+  self.currentUserId = function(){
+    if (TokenService.isLoggedIn()) {
+      return TokenService.parseJwt().id;
+    } else {
+      return null;
+    }
   }
 
   // function deleteCombo(combo){
