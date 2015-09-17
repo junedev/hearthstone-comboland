@@ -11,7 +11,7 @@
 
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/#/">All combos</a></li>
+        <li><a href="#/all">All combos</a></li>
         <li ng-show="user.isLoggedIn()"><a href="#/combos/new">Add combo</a></li>
         <li ng-hide="user.isLoggedIn()"><a href="#/login">Login/Signup</a></li>
         <li ng-show="user.isLoggedIn()"><a href="/#/" ng-click="user.logout()">Logout</a></li>

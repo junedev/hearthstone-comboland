@@ -5828,7 +5828,7 @@ h1, h2, h3, .navbar-default a {
   background-repeat: no-repeat;
   background-size: 100% 70px; }
   .navbar-default a.navbar-brand {
-    font-size: 31px; }
+    font-size: 28px; }
     .navbar-default a.navbar-brand:focus, .navbar-default a.navbar-brand.focus, .navbar-default a.navbar-brand:active:focus, .navbar-default a.navbar-brand:active.focus, .navbar-default a.navbar-brand.active:focus, .navbar-default a.navbar-brand.active.focus {
       color: #FCD144; }
   .navbar-default a {
@@ -5884,7 +5884,7 @@ h1, h2, h3, .navbar-default a {
   background: none; }
 
 .top-margin {
-  margin-top: 40px; }
+  margin-top: 30px; }
 
 .bottom-margin {
   margin-bottom: 30px; }
@@ -5915,6 +5915,48 @@ ul.dropdown-menu {
   margin: 0 auto;
   margin-top: 30px; }
 
+.headline {
+  color: #FCD144;
+  text-shadow: 0px 0px 6px #000;
+  font-size: 31px;
+  letter-spacing: 2px;
+  line-height: 64px; }
+
+.enter-button {
+  background-image: url("/images/enter-bg2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  overflow: visible; }
+
+.landing-page {
+  max-width: 650px;
+  margin: 0 auto; }
+  .landing-page p {
+    font-size: 20px; }
+
+.quotes {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 30px; }
+  .quotes p {
+    font-size: 20px; }
+
+.landing-wrapper {
+  position: relative; }
+
+@media (min-width: 1350px) {
+  .quotes {
+    max-width: 250px;
+    margin: 0 auto;
+    position: absolute;
+    top: 220px; }
+
+  .left-quote {
+    left: 30px; }
+
+  .right-quote {
+    right: 30px; } }
 @media (min-width: 992px) {
   .move-up {
     float: right; }
@@ -5922,5 +5964,17 @@ ul.dropdown-menu {
   .navbar-default {
     padding-right: 10px;
     padding-left: 20px; } }
+@media (max-width: 768px) {
+  .logo {
+    width: 300px;
+    height: auto; }
+
+  .landing-page p {
+    font-size: 15px; }
+
+  .enter-button {
+    background-size: 100% auto; }
+    .enter-button h1 {
+      font-size: 20px; } }
 
 /*# sourceMappingURL=style.css.map */

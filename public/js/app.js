@@ -8,8 +8,8 @@ MainRouter.$inject = ['$routeProvider', '$locationProvider'];
 
 function MainRouter($routeProvider, $locationProvider){
   $routeProvider
-    .when('/', {
-      templateUrl: 'templates/home.html',
+    .when('/all', {
+      templateUrl: 'templates/combos.html',
       controller: 'ComboController as combos'
     })
     .when('/combos/new', {
@@ -18,5 +18,8 @@ function MainRouter($routeProvider, $locationProvider){
     })
     .when('/login', {
       templateUrl: 'templates/login.html'
+    })
+    .when('/', {
+      templateUrl: 'templates/landing.html'
     })
 }
