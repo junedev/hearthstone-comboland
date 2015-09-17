@@ -12,6 +12,7 @@ h1, h2, h3, .navbar-default a {
 
 .adjust-margin {
   margin-top: 5px;
+  margin-right: 35px;
 }
 
 .no-margin {
@@ -19,6 +20,7 @@ h1, h2, h3, .navbar-default a {
 }
 
 .navbar-default {
+  height: $navbar-height;
   text-shadow: 0px 0px 6px #000;
   margin: 30px 0;
   background: none;
@@ -29,19 +31,23 @@ h1, h2, h3, .navbar-default a {
 
   a.navbar-brand {
     font-size: ceil(($font-size-base * 2.2));
+    &, &:active, &.active {
+      &:focus, &.focus {
+        color: $navbar-default-color;
+      }
+    }
   }
 
   a {
     font-size: ceil(($font-size-base * 1.5));
   }
-@media (max-width: $screen-sm-min){
-  a.navbar-brand {
-    font-size: 25px;
+
+  @media (max-width: $screen-sm-min){
+    a.navbar-brand {
+      font-size: 20px;
+    }
   }
 }
-}
-
-
 
 
 .big-card {
@@ -55,6 +61,16 @@ h1, h2, h3, .navbar-default a {
   width: 150px;
   height: auto;
 }
+
+.image-outer-container {
+  border: 8px solid transparent;
+  display: inline-block;
+  position: relative;
+  border-width: 17px 20px;
+  margin: 0;
+  cursor: pointer;
+}
+
 
 .panel {
   border: 8px solid #dec79b;
@@ -81,12 +97,54 @@ h1, h2, h3, .navbar-default a {
   }
 }
 
+.no-styling {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.top-margin {
+  margin-top: 40px;
+}
+
+.bottom-margin {
+  margin-bottom: 30px;
+}
+
+ul.dropdown-menu {
+  position: absolute;
+  width: 100%;
+}
+
+.typeahead-container {
+  position: relative;
+}
+
+.fancy-button {
+  height: 50px;
+  width: 160px;
+  background-image: url("/images/button-bg.jpg");
+  color: $navbar-default-color;
+  font-size: 25px;
+  font-family: 'Miltonian Tattoo', cursive;
+  margin-bottom: 30px;
+}
+
+.add-button {
+  display: block;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.next-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+}
 
 @media (min-width: $screen-md-min) {
-  .small-field {
-    width: 50%;
-  }
-
   .move-up {
     float: right;
   }
@@ -96,12 +154,4 @@ h1, h2, h3, .navbar-default a {
     padding-left: 20px;
   }
 
-}
-
-.no-styling {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  background: none;
 }

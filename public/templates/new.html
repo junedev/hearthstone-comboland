@@ -1,41 +1,59 @@
-<div class="row" ng-hide="hideHeroSelection">
-  <div class="col-sx-12">
-<h1>Build new combination</h1>
-    <label>Name for new card combination</label>
-    <input type="text" ng-model="combos.newCombo.name" class="form-control small-field">
-    <h2>Select a hero</h2>
-    <span ng-repeat="hero in combos.heros">
+<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-sx-12" ng-hide="hideHeroSelection">
+
+  <h1>Build a new combination</h1>
+  <input type="text" ng-model="combos.newCombo.name" class="form-control bottom-margin input-lg" placeholder="Title for new combination">
+
+  <h3 class="top-margin">Select a hero</h3>
+  <div class="text-center"> 
+    <span ng-repeat="hero in combos.heros" class="image-outer-container" ng-class="{panel:combos.newCombo.hero.cardId==hero.cardId}">
       <img ng-src="{{hero.img}}" ng-click="combos.newCombo.hero=hero" class="big-card">
     </span>
-    <button ng-click="hideHeroSelection=true; combos.getCards();" class="btn btn-primary">Next</button>
+    <button ng-click="hideHeroSelection=true; combos.getCards();" class="no-styling fancy-button next-button">Next</button>
   </div>
+
 </div>
-<div class="row" ng-show="hideHeroSelection">
-  <div class="col-md-4 col-sx-12">
-  <h1>Build new combination</h1>
-    <select ng-model="selectedCardIndex" class="form-control" ng-change="combos.currentCard=combos.cards[selectedCardIndex];searchedCard='';">
+
+<div class="col-md-4 col-sx-12" ng-show="hideHeroSelection">
+  <h1>Add cards</h1>
+  <div class="form-group typeahead-container">
+    <label>Search by name</label>
+    <input type="text" ng-model="searchedCard" typeahead="card as card.name for card in combos.cards | filter:{name:$viewValue} | limitTo:8" typeahead-template-url="templates/customTypeahead.html" typeahead-on-select="combos.currentCard=searchedCard; selectedCardIndex='';" class="form-control bottom-margin input-lg">
+  </div>
+
+  <div class="form-group">
+    <label>Or select from drop-down list</label>
+    <select ng-model="selectedCardIndex" class="form-control bottom-margin input-lg" ng-change="combos.currentCard=combos.cards[selectedCardIndex];searchedCard='';">
       <option ng-repeat="card in combos.cards track by $index" value="{{$index}}"> {{card.name}} </option>
     </select>
-
-    <input type="text" ng-model="searchedCard" typeahead="card as card.name for card in combos.cards | filter:{name:$viewValue} | limitTo:8" typeahead-template-url="templates/customTypeahead.html" typeahead-on-select="combos.currentCard=searchedCard; selectedCardIndex='';" class="form-control">
-
-    <div ng-show="combos.currentCard.img">
-      <img ng-src="{{combos.currentCard.img}}" class="big-card">
-    </div>
-    <button ng-click="combos.addCard(); selectedCardIndex=''; searchedCard=''" class="btn btn-primary">Add card</button>
   </div>
-  <div class="col-md-4 col-sx-12">
-    <label>Description</label>
-    <textarea ng-model="combos.newCombo.description" class="form-control"></textarea>
+
+  <div ng-show="combos.currentCard.img">
+    <img ng-src="{{combos.currentCard.img}}" class="big-card">
+    <button ng-click="combos.addCard(); selectedCardIndex=''; searchedCard=''" class="no-styling fancy-button add-button">Add</button>
   </div>
-  <div class="col-md-4 col-sx-12">
-    <h1>Preview</h1>
-    <h2>{{combos.newCombo.name}}</h2>
-    <h3>{{combos.newCombo.hero.playerClass}}</h3>
+
+</div>
+
+
+<div class="col-md-3 col-sx-12" ng-show="hideHeroSelection">
+  <h1>Add description</h1>
+  <textarea ng-model="combos.newCombo.description" class="form-control bottom-margin" rows="10"></textarea>
+</div>
+
+
+<div class="col-md-5 col-sx-12" ng-show="hideHeroSelection">
+<h1>Preview</h1>
+  <div class="panel clearfix">
+    <h2 class="adjust-margin"> {{ combos.newCombo.name }}</h2>
+    <h3 class="adjust-margin">Class: {{ combos.newCombo.hero.playerClass }}</h3>
     <span ng-repeat="card in combos.newCombo.cards">
-      <img ng-src="{{card.img}}" class="big-card">
+      <img ng-src="{{card.img}}" class="small-card">
     </span>
     <p>{{combos.newCombo.description}}</p>
-    <button class="btn btn-primary" ng-click="combos.addCombo()">Submit</button>
+  </div>
+  <div class="text-center"> 
+    <button class="no-styling fancy-button" ng-click="combos.addCombo()">Submit</button>
   </div>
 </div>
+
+

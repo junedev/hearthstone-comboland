@@ -10,7 +10,7 @@
     <div class="voting">
       <button ng-click="combos.rate(combo,1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling"><img src="/images/arrow-up.png" alt="Upvote" class="arrow"></button>
       <p class="no-margin"><strong>{{combo.rating}}</strong></p>
-      <a ng-click="combos.rate(combo,-1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus"><span><img src="/images/arrow-down.png" alt="Downvote" class="arrow"></span></a>
+      <button ng-click="combos.rate(combo,-1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling"><img src="/images/arrow-down.png" alt="Downvote" class="arrow"></button>
     </div>
 
     <strong>
