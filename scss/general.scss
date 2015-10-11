@@ -67,7 +67,9 @@ h1, h2, h3, .navbar-default a {
   display: inline-block;
   position: relative;
   border-width: 17px 20px;
-  margin: 0;
+  &.panel {
+    margin: 0;
+  }
   cursor: pointer;
 }
 
@@ -78,12 +80,13 @@ h1, h2, h3, .navbar-default a {
   border-image: url("/images/artwork-frameV2.png") 17 20 stretch;
   background: rgba(255,255,255,0.2);
   position: relative;
+  margin-bottom: 30px;
 }
 
 .voting {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0px;
+  right: 0px;
   text-align: center;
   p, strong { 
     font-size: ceil(($font-size-base * 2));
@@ -162,7 +165,6 @@ ul.dropdown-menu {
   line-height:64px;
 }
 
-
 .enter-button {
   background-image: url("/images/enter-bg2.png");
   background-repeat: no-repeat;
@@ -210,10 +212,6 @@ ul.dropdown-menu {
 }
 
 @media (min-width: $screen-md-min) {
-  .move-up {
-    float: right;
-  }
-
   .navbar-default {
     padding-right: 10px;
     padding-left: 20px;
@@ -225,9 +223,11 @@ ul.dropdown-menu {
     width: 300px;
     height: auto;
   }
+
   .landing-page p {
     font-size: 15px;
   }
+
   .enter-button {
     background-size: 100% auto;
     h1 {

@@ -1,5 +1,6 @@
-<div class="col-md-4 col-sx-12 move-up clearfix" ng-repeat="combo in combos.all">
-  <div class="panel clearfix">
+<div masonry>
+<div class="col-lg-4 col-md-6 col-sx-12 masonry-brick" ng-repeat="combo in combos.all">
+  <div class="panel">
     <h2 class="adjust-margin"> {{ combo.name }}</h2>
     <h3 class="adjust-margin">Class: {{ combo.hero.playerClass }}</h3>
     <span ng-repeat="card in combo.cards">
@@ -18,10 +19,12 @@
     </strong>
     <a href="#" class="pull-right"><i>Created by user xyz</i></a> 
   </div>
-  <div ng-if="false">
+<!--   <div ng-if="false">
     <label>Add comment</label>
     <textarea ng-model="text" class="form-control"></textarea>
     <button ng-click="combos.addComment(combo,text)" class="btn btn-primary">Submit</button>
-  </div>
+  </div> -->
 </div>
+</div>
+
 

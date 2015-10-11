@@ -32,7 +32,7 @@ function ComboController(Combo, Card, TokenService){
     Combo.save(self.newCombo, function(combo) {
       self.all.unshift(combo);
       self.newCombo = {cards: [], rating:0};
-      window.location.href = "/";
+      window.location.href = "#/all";
     });
   }
 

@@ -20,6 +20,7 @@
     "angular-jwt": "~0.0.9",
     "angular-resource": "~1.4.5",
     "angular-route": "~1.4.5",
-    "bootstrap-sass": "~3.3.5"
+    "bootstrap-sass": "~3.3.5",
+    "angular-masonry": "~0.13.0"
   }
 }

@@ -5852,20 +5852,22 @@ h1, h2, h3, .navbar-default a {
   display: inline-block;
   position: relative;
   border-width: 17px 20px;
-  margin: 0;
   cursor: pointer; }
+  .image-outer-container.panel {
+    margin: 0; }
 
 .panel {
   border: 8px solid #dec79b;
   border-width: 17px 20px;
   border-image: url("/images/artwork-frameV2.png") 17 20 stretch;
   background: rgba(255, 255, 255, 0.2);
-  position: relative; }
+  position: relative;
+  margin-bottom: 30px; }
 
 .voting {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0px;
+  right: 0px;
   text-align: center; }
   .voting p, .voting strong {
     font-size: 28px;
@@ -5958,9 +5960,6 @@ ul.dropdown-menu {
   .right-quote {
     right: 30px; } }
 @media (min-width: 992px) {
-  .move-up {
-    float: right; }
-
   .navbar-default {
     padding-right: 10px;
     padding-left: 20px; } }

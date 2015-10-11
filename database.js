@@ -36,26 +36,9 @@ function fetchAPIdata(){
         data[key].forEach(function(card){
           RawCard.create(card, function(err){
             if(err) console.log(err);
-          })
-        })
+          });
+        });
       });
     }
   });
 }
-
-// function fetchInfo(){
-//   var options = {
-//     url: 'https://omgvamp-hearthstone-v1.p.mashape.com/info',
-//     headers: {"X-Mashape-Key": process.env.HEARTHSTONE_KEY}
-//   };
-
-//   request(options, function (err, res, body) {
-//     if (!err && res.statusCode == 200) {
-//       var info = JSON.parse(body);
-
-//       APIdata.findOneAndUpdate({},{info: info},function(err){
-//         if(err) console.log(err);
-//       });
-//     }
-//   });
-// }
