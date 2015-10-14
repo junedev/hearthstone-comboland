@@ -5808,8 +5808,14 @@ body {
   font-style: normal;
   font-weight: 400; }
 
+a:hover, a:focus, a:visited {
+  text-decoration: none; }
+
 h1, h2, h3, .navbar-default a {
   font-family: 'Miltonian Tattoo', cursive; }
+
+textarea {
+  max-width: 100%; }
 
 .adjust-margin {
   margin-top: 5px;
@@ -5863,6 +5869,9 @@ h1, h2, h3, .navbar-default a {
   background: rgba(255, 255, 255, 0.2);
   position: relative;
   margin-bottom: 30px; }
+
+.panel.clickable:hover {
+  background: rgba(255, 255, 255, 0.4); }
 
 .voting {
   position: absolute;

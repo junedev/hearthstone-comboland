@@ -11,5 +11,6 @@ function Combo($resource){
       "heros": {method: "GET", url: "/combos/heros", isArray: true }
     }
   );
+
   return ComboResource;
 }

@@ -13,15 +13,15 @@ function TokenService($window, jwtHelper) {
   }
 
   self.saveToken = function(token) {
-    $window.localStorage['comboland-token'] = token;
+    $window.sessionStorage.setItem('comboland-token',token);
   }
 
   self.getToken = function() {
-    return $window.localStorage['comboland-token'];
+    return $window.sessionStorage.getItem('comboland-token');
   }
 
   self.removeToken = function() {
-    $window.localStorage.removeItem('comboland-token');
+    $window.sessionStorage.removeItem('comboland-token');
   }
 
   self.isLoggedIn = function() {
@@ -31,6 +31,14 @@ function TokenService($window, jwtHelper) {
       return true;
     } else {
       return false;
+    }
+  }
+
+  self.currentUserId = function(){
+    if (this.isLoggedIn()) {
+      return this.parseJwt().id;
+    } else {
+      return null;
     }
   }
   

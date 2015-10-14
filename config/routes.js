@@ -13,6 +13,7 @@ router.route('/combos')
   .post(comboController.createCombo)
 
 router.route('/combos/:id')
+  .get(comboController.getCombo)
   .put(comboController.updateCombo)
 
 router.route('/cards/:className')

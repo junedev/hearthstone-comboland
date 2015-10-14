@@ -6,8 +6,16 @@ body {
   font-weight: 400;
 }
 
+a:hover, a:focus, a:visited {
+  text-decoration: none;
+}
+
 h1, h2, h3, .navbar-default a {
   font-family: 'Miltonian Tattoo', cursive;
+}
+
+textarea {
+  max-width: 100%;
 }
 
 .adjust-margin {
@@ -83,6 +91,10 @@ h1, h2, h3, .navbar-default a {
   margin-bottom: 30px;
 }
 
+.panel.clickable:hover {
+  background: rgba(255,255,255,0.4);
+}
+
 .voting {
   position: absolute;
   top: 0px;
@@ -146,16 +158,6 @@ ul.dropdown-menu {
   margin: 0 auto;
   margin-top: 30px;
 }
-
-// .vertical-center {
-//   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-//   min-height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   width: 60%;
-//   margin: 0 auto;
-//   background: none;
-// }
 
 .headline {
   color: $navbar-default-color;

@@ -2,8 +2,8 @@ angular
   .module('comboApp')
   .controller('UserController', UserController)
 
-UserController.$inject = ['User','TokenService','$window']
-function UserController(User, TokenService, $window) {
+UserController.$inject = ['User', 'TokenService','$location']
+function UserController(User, TokenService, $location) {
   var self = this;
 
   self.user = null;
@@ -15,7 +15,7 @@ function UserController(User, TokenService, $window) {
   }
 
   function redirect(res){
-    $window.location.href = "/";
+    $location.url("/");
   }
 
   self.login = function() {

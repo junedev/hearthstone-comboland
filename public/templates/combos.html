@@ -1,17 +1,17 @@
 <div masonry>
 <div class="col-lg-4 col-md-6 col-sx-12 masonry-brick" ng-repeat="combo in combos.all">
-  <div class="panel">
+  <div class="panel clickable" ng-click="combos.show(combo)">
     <h2 class="adjust-margin"> {{ combo.name }}</h2>
     <h3 class="adjust-margin">Class: {{ combo.hero.playerClass }}</h3>
     <span ng-repeat="card in combo.cards">
       <img ng-src="{{card.img}}" class="small-card">
     </span>
-    <p>{{combo.description}}</p>
+    <p> {{combo.description}} </p>
 
     <div class="voting">
-      <button ng-click="combos.rate(combo,1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling"><img src="/images/arrow-up.png" alt="Upvote" class="arrow"></button>
+      <button ng-click="combos.rate(combo,1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling" stop-event><img src="/images/arrow-up.png" alt="Upvote" class="arrow"></button>
       <p class="no-margin"><strong>{{combo.rating}}</strong></p>
-      <button ng-click="combos.rate(combo,-1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling"><img src="/images/arrow-down.png" alt="Downvote" class="arrow"></button>
+      <button ng-click="combos.rate(combo,-1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling" stop-event><img src="/images/arrow-down.png" alt="Downvote" class="arrow"></button>
     </div>
 
     <strong>
@@ -19,11 +19,6 @@
     </strong>
     <a href="#" class="pull-right"><i>Created by user xyz</i></a> 
   </div>
-<!--   <div ng-if="false">
-    <label>Add comment</label>
-    <textarea ng-model="text" class="form-control"></textarea>
-    <button ng-click="combos.addComment(combo,text)" class="btn btn-primary">Submit</button>
-  </div> -->
 </div>
 </div>
 
