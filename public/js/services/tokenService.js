@@ -35,13 +35,13 @@ function TokenService($window, jwtHelper) {
   }
 
   self.currentUserId = function(){
-    if (this.isLoggedIn()) {
-      return this.parseJwt().id;
+    if (self.isLoggedIn()) {
+      return self.parseJwt().id;
     } else {
       return null;
     }
   }
   
-  return this;
+  return self;
 
 }

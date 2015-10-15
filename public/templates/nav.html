@@ -12,10 +12,10 @@
     <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#/combos">All</a></li>
-        <li ng-show="user.isLoggedIn()"><a href="#/combos/new">New</a></li>
-        <li ng-hide="user.isLoggedIn()"><a href="#/login">Login/Signup</a></li>
-        <li ng-show="user.isLoggedIn()"><a href="#">Profile</a></li>
-        <li ng-show="user.isLoggedIn()"><a href="/#/" ng-click="user.logout()">Logout</a></li>
+        <li ng-show="user.currentUser"><a href="#/combos/new">New</a></li>
+        <li ng-hide="user.currentUser"><a href="#/login">Login/Signup</a></li>
+        <li ng-show="user.currentUser"><a href="#">Profile</a></li>
+        <li ng-show="user.currentUser"><a href="/#/" ng-click="user.logout()">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

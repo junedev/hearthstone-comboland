@@ -3,7 +3,7 @@ angular.module("comboApp")
 
 IndexController.$inject = ["Combo", "TokenService", "$location"];
 
-function IndexController(Combo, Card, TokenService, $location){
+function IndexController(Combo, TokenService, $location){
   var self = this;
   self.all = Combo.query();
 
@@ -12,7 +12,7 @@ function IndexController(Combo, Card, TokenService, $location){
       Combo.update({id: combo._id}, {$inc:{rating: number}},function(){
         // FIXME change rating without reloading
         self.all = Combo.query();
-      })
+      });
     }
   }
 

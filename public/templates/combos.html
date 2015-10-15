@@ -1,6 +1,6 @@
 <div masonry>
-<div class="col-lg-4 col-md-6 col-sx-12 masonry-brick" ng-repeat="combo in combos.all">
-  <div class="panel clickable" ng-click="combos.show(combo)">
+<div class="col-lg-4 col-md-6 col-sx-12 masonry-brick" reload-on-show ng-repeat="combo in combos.all">
+  <div class="panel" ng-class="{clickable: user.isLoggedIn()}" ng-click="user.isLoggedIn() && combos.show(combo)">
     <h2 class="adjust-margin"> {{ combo.name }}</h2>
     <h3 class="adjust-margin">Class: {{ combo.hero.playerClass }}</h3>
     <span ng-repeat="card in combo.cards">

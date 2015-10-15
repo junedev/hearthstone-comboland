@@ -25,4 +25,7 @@ router.route('/users/login')
 router.route('/users/signup')
   .post(userController.signup)
 
+router.route('/users/:id')
+  .get(userController.getUser)
+
 module.exports = router

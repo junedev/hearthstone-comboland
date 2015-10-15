@@ -20,6 +20,10 @@ function MainRouter($routeProvider, $locationProvider){
       templateUrl: "templates/combos.html",
       controller: "IndexController as combos"
     })
+    .when("/users/:userId", {
+      templateUrl: "templates/profile.html",
+      controller: "ProfileController as profile"
+    })
     .when("/login", {
       templateUrl: "templates/login.html"
     })

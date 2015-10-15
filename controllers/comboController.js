@@ -38,14 +38,13 @@ function updateCombo(req, res){
 
 function getCombo(req, res){
   var id = req.params.id;
-  Combo.findById(id, function(err,combo){
+  Combo.findById(id).populate("user").exec(function(err,combo){
     if (err) {
       console.log(err);
       return res.status(404).send({message: "Combo not found."});
     } else {
       return res.status(200).send(combo);
     }
-
   });
 }
 

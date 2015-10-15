@@ -1,4 +1,5 @@
 <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sx-12">
+{{combo.current}}
   <div class="panel clearfix">
     <h2 class="adjust-margin"> {{ combo.current.name }}</h2>
     <h3 class="adjust-margin">Class: {{ combo.current.hero.playerClass }}</h3>
@@ -13,12 +14,12 @@
       <button ng-click="combo.rate(combo.current,-1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling"><img src="/images/arrow-down.png" alt="Downvote" class="arrow"></button>
     </div>
 
-    <a href="#" class="pull-right"><i>Created by user xyz</i></a> 
+    <a ng-href="#/users/{{combo.current.user.id}}" class="pull-right"><i>Created by user {{combo.current.user.username}}</i></a> 
   </div>
   <h2 ng-if="combo.current.comments.length">Comments</h2>
   <div class="panel clearfix" ng-repeat="comment in combo.current.comments">
     {{comment.text}}
-    <a href="#" class="pull-right"><i>Comment from xyz</i></a>
+    <a ng-href="#/users/{{comment.user.id}}" class="pull-right"><i>Comment from xyz</i></a>
   </div>
     <label>Leave a comment</label>
     <textarea rows="6" ng-model="combo.newCommentText" class="form-control bottom-margin"></textarea>

@@ -5,8 +5,8 @@ angular
 UserController.$inject = ['User', 'TokenService','$location']
 function UserController(User, TokenService, $location) {
   var self = this;
-
-  self.user = null;
+  self.currentUser = null;
+  self.newUser = null;
   self.message = null;
 
   function showMessage(res) {
@@ -15,20 +15,24 @@ function UserController(User, TokenService, $location) {
   }
 
   function redirect(res){
-    $location.url("/");
+    self.message = null;
+    if (self.isLoggedIn()) {
+      self.currentUser = TokenService.parseJwt();
+    }
+    $location.path("/");
   }
 
   self.login = function() {
-    User.login(self.user, redirect, showMessage);
+    User.login(self.newUser, redirect, showMessage);
   }
 
   self.signup = function() {
-    User.signup(self.user, redirect, showMessage);
+    User.signup(self.newUser, redirect, showMessage);
   }
 
   self.logout = function() {
     TokenService.removeToken();
-    self.user = null;
+    self.currentUser = null;
   }
 
   self.isLoggedIn = function() {
@@ -36,7 +40,9 @@ function UserController(User, TokenService, $location) {
   }
 
   if (self.isLoggedIn()) {
-    self.user = TokenService.parseJwt();
+    self.currentUser = TokenService.parseJwt();
   }
+
+  return self;
 
 }

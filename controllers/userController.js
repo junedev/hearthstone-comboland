@@ -15,7 +15,7 @@ function login(req, res) {
 
     if (!user.validPassword(req.body.password)) return res.status(403).send({ message: 'Wrong login credentials.' });
 
-    var token = jwt.sign(user, secret, { expiresInMinutes: 1440 });
+    var token = jwt.sign({id: user.id}, secret, { expiresInMinutes: 1440 });
 
     return res.status(200).send({
       success: true,
@@ -40,7 +40,20 @@ function signup(req, res){
   })(req,res);
 }
 
+function getUser(req, res){
+  var id = req.params.id;
+  User.findById(id).exec(function(err,user){
+    if (err) {
+      console.log(err);
+      return res.status(404).send({message: "User not found."});
+    } else {
+      return res.status(200).send(user);
+    }
+  });
+}
+
 module.exports = {
+  getUser: getUser,
   login: login,
   signup: signup
 };

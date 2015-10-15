@@ -1,39 +1,36 @@
 angular.module("comboApp")
-  .controller("IndexController", IndexController);
+  .controller("NewController", NewController);
 
-IndexController.$inject = ["Combo","Card","TokenService", "$location"];
+NewController.$inject = ["Combo","Card","TokenService", "$location"];
 
-function IndexController(Combo, Card, TokenService, $location){
+function NewController(Combo, Card, TokenService, $location){
   var self = this;
-  self.currentCard = null;
-  self.all = Combo.query();
-  self.cards = [];
-  self.heros = [];
-  self.newCombo = {cards:[], rating:0};
+  this.currentCard = null;
+  this.cards = [];
+  this.heros = [];
+  this.newCombo = {cards:[], rating:0};
 
-  self.getHeros = function(){ self.heros = Combo.heros(); }
+  this.getHeros = function(){ self.heros = Combo.heros(); }
 
-  self.getHeros();
+  this.getHeros();
 
-  self.getCards = function(){
-    Card.allCards(self.newCombo.hero.playerClass)
+  this.getCards = function(){
+    Card.allCards(this.newCombo.hero.playerClass)
       .then(function(result) { self.cards = result.data.sort(compare) });
-    self.newCombo.cards = [];
+    this.newCombo.cards = [];
   }
 
-  self.addCard = function(){
-    var card = self.currentCard;
+  this.addCard = function(){
+    var card = this.currentCard;
     var newCard = {name: card.name, flavor: card.flavor, img: card.img, cardSet:card.cardSet}
-    self.newCombo.cards.push(newCard);
-    self.currentCard = null;
+    this.newCombo.cards.push(newCard);
+    this.currentCard = null;
   }
 
-  self.addCombo = function(){
-    self.newCombo.user = TokenService.currentUserId();
-    Combo.save(self.newCombo, function(combo) {
-      self.all.unshift(combo);
-      self.newCombo = {cards: [], rating:0};
-      $location.url("/combos/");
+  this.addCombo = function(){
+    this.newCombo.user = TokenService.currentUserId();
+    Combo.save(this.newCombo, function() {
+        $location.url("/combos/");
     });
   }
 
