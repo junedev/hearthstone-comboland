@@ -4,9 +4,10 @@ var logger = require("morgan");
 var passport = require("passport");
 var expressJWT = require("express-jwt");
 var database = require("./database");
+var schedule = require("node-schedule");
 
 var app = express();
-var secret = "23epahlq562dnf5as3";
+var secret = "combolandSecret";
 var port = process.env.PORT || 9000;
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -15,6 +16,9 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 
 database.initialize();
+schedule.scheduleJob({hour: 23, minute: 30, dayOfWeek: 0}, function(){
+  database.initialize();
+});
 
 app.set("views", "./public");
 app.engine('html', require('ejs').renderFile);

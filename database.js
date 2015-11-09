@@ -5,19 +5,23 @@ var RawCard = require("./models/rawCard");
 
 
 module.exports.initialize = function(){
-  mongoose.connect(databaseURL);
-  mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-  mongoose.connection.on('open', function (ref) {
-    console.log('Connected to mongo server ' + databaseURL);
+  if(mongoose.connection.readyState==0){
+    mongoose.connect(databaseURL);
+    mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+    mongoose.connection.on('open', function (ref) {
+      console.log('Connected to mongo server ' + databaseURL);
+      resetRawData();
+    });
+  } else {
+    resetRawData();
+  }
+}
 
-    RawCard.findOne({}, '_id' ,function(err, data){
-      if (err) console.log(err);
-      var lastWeek = new Date(Date.now() - 7*24*60*60*1000);
-      if(!data || data._id.getTimestamp() < lastWeek){
-        RawCard.remove({},function(){});
-        fetchAPIdata();
-      }
-    })
+function resetRawData(){
+  RawCard.findOne({}, '_id' ,function(err, data){
+    if (err) console.log(err);
+    RawCard.remove({},function(){});
+    fetchAPIdata();
   })
 }
 

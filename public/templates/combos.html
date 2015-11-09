@@ -1,25 +1,25 @@
 <div masonry>
-<div class="col-lg-4 col-md-6 col-sx-12 masonry-brick" reload-on-show ng-repeat="combo in combos.all">
-  <div class="panel" ng-class="{clickable: user.isLoggedIn()}" ng-click="user.isLoggedIn() && combos.show(combo)">
-    <h2 class="adjust-margin"> {{ combo.name }}</h2>
-    <h3 class="adjust-margin">Class: {{ combo.hero.playerClass }}</h3>
-    <span ng-repeat="card in combo.cards">
-      <img ng-src="{{card.img}}" class="small-card">
-    </span>
-    <p> {{combo.description}} </p>
+  <div class="col-lg-4 col-md-6 col-sx-12 masonry-brick" reload-on-show ng-repeat="combo in combos.all">
+    <div class="panel" ng-class="{clickable: user.isLoggedIn()}" ng-click="user.isLoggedIn() && combos.show(combo)">
+      <h2 class="adjust-margin"> {{ combo.name }}</h2>
+      <h3 class="adjust-margin">Class: {{ combo.hero.playerClass }}</h3>
+      <span ng-repeat="card in combo.cards">
+        <img ng-src="{{card.img}}" class="small-card">
+      </span>
+      <p> {{combo.description}} </p>
 
-    <div class="voting">
-      <button ng-click="combos.rate(combo,1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling" stop-event><img src="/images/arrow-up.png" alt="Upvote" class="arrow"></button>
-      <p class="no-margin"><strong>{{combo.rating}}</strong></p>
-      <button ng-click="combos.rate(combo,-1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling" stop-event><img src="/images/arrow-down.png" alt="Downvote" class="arrow"></button>
+      <div class="voting">
+        <button ng-click="combos.rate(combo,1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling" stop-event><img src="/images/arrow-up.png" alt="Upvote" class="arrow"></button>
+        <p class="no-margin"><strong>{{combo.rating}}</strong></p>
+        <button ng-click="combos.rate(combo,-1)" tooltip="You need to be logged in to vote." tooltip-placement="top" tooltip-enable="!user.isLoggedIn()" tooltip-trigger="focus" class="no-styling" stop-event><img src="/images/arrow-down.png" alt="Downvote" class="arrow"></button>
+      </div>
+
+      <strong>
+        <a href="#/combos/{{combo._id}}"> {{combo.comments.length}} Comment(s) </a>
+      </strong>
+      <a href="#/users/{{combo.user.id}}" class="pull-right" stop-event><i>Created by {{combo.user.username}}</i></a> 
     </div>
-
-    <strong>
-      <a href="#"> {{combo.comments.length}} Comment(s) </a>
-    </strong>
-    <a href="#" class="pull-right"><i>Created by user xyz</i></a> 
   </div>
-</div>
 </div>
 
 

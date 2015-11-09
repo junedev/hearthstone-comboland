@@ -81,7 +81,6 @@ textarea {
   cursor: pointer;
 }
 
-
 .panel {
   border: 8px solid #dec79b;
   border-width: 17px 20px;
@@ -93,6 +92,11 @@ textarea {
 
 .panel.clickable:hover {
   background: rgba(255,255,255,0.4);
+}
+
+.bio {
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
 .voting {
@@ -173,6 +177,7 @@ ul.dropdown-menu {
   background-position: center;
   cursor: pointer;
   overflow: visible;
+  margin-bottom: 50px;
 }
 
 .landing-page {
@@ -183,34 +188,8 @@ ul.dropdown-menu {
   }
 }
 
-.quotes {
-  max-width: 500px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  p {
-    font-size: 20px;
-  }
-}
-
 .landing-wrapper {
   position: relative;
-}
-
-@media (min-width: 1350px) {
-  .quotes {
-    max-width: 250px;
-    margin: 0 auto;
-    position: absolute;
-    top: 220px;
-  }
-  
-  .left-quote {
-    left: 30px;
-  }
-
-  .right-quote {
-    right: 30px;
-  }
 }
 
 @media (min-width: $screen-md-min) {

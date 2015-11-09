@@ -1,4 +1,14 @@
-<div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sx-12">
-  <h1>{{profile.user.username}}</h1>
-  <p>{{profile.user.bio}}</p>
+<div class="alert alert-danger" role="alert" ng-if="!user.isLoggedIn()">You need to be logged in to view this page.</div>
+<div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sx-12" ng-if="user.isLoggedIn()">
+  <h1>About {{profile.user.username}}</h1>
+  <p class="bio">{{profile.user.bio}}</p>
+  <h1>{{profile.user.username}}'s Combos</h1>
+  <div class="panel clearfix clickable" ng-repeat="combo in profile.combos | filter: {user:{id: profile.user.id}}" ng-click="profile.showCombo(combo)">
+    <h2 class="adjust-margin"> {{ combo.name }}</h2>
+    <h3 class="adjust-margin">Class: {{ combo.hero.playerClass }}</h3>
+    <span ng-repeat="card in combo.cards">
+      <img ng-src="{{card.img}}" class="small-card">
+    </span>
+    <p>{{combo.description}}</p>
+  </div>
 </div>

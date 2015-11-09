@@ -2,7 +2,7 @@ var Combo = require('../models/combo');
 var RawCard = require('../models/rawCard');
 
 function getAll(req, res) {
-  Combo.find({}, function(err, combos){
+  Combo.find({}).populate("user").exec(function(err, combos){
     res.status(200).send(combos);
   });
 }
@@ -38,7 +38,8 @@ function updateCombo(req, res){
 
 function getCombo(req, res){
   var id = req.params.id;
-  Combo.findById(id).populate("user").exec(function(err,combo){
+  Combo.findById(id).populate(["user","comments.user"]).exec(function(err,combo){
+    console.log(combo);
     if (err) {
       console.log(err);
       return res.status(404).send({message: "Combo not found."});
