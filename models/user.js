@@ -6,7 +6,7 @@ var userSchema = new mongoose.Schema({
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   bio: String
-})
+});
 
 userSchema.set('toJSON', {
   transform: function(doc, ret, options) {
@@ -25,7 +25,7 @@ userSchema.methods.encrypt = function(password) {
 
 userSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.password);
-}
+};
 
 var User = mongoose.model("User", userSchema);
 

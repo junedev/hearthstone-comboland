@@ -16,7 +16,7 @@ function ShowController(Combo, $routeParams, TokenService, $location){
       self.current.comments.push(comment);
       self.newCommentText = "";
     });
-  }
+  };
 
   self.rate = function(combo,number){
     if(TokenService.currentUserId()){
@@ -24,13 +24,13 @@ function ShowController(Combo, $routeParams, TokenService, $location){
         self.current.rating += number;
       });
     }
-  }
+  };
 
   self.deleteCombo = function(){
     if(self.current.user.id==TokenService.currentUserId()){
       Combo.delete({id: self.current._id});
       $location.path("/combos");
     }
-  }
+  };
   
 }

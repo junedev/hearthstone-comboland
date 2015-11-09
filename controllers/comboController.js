@@ -21,7 +21,7 @@ function createCombo(req, res){
     } else {
       res.status(200).send(combo);
     }
-  })
+  });
 }
 
 function updateCombo(req, res){
@@ -33,7 +33,7 @@ function updateCombo(req, res){
     } else {
       return res.status(200).send({message: "Combo updated."});
     }
-  })
+  });
 }
 
 function getCombo(req, res){
@@ -52,7 +52,7 @@ function getCombo(req, res){
 function deleteCombo(req, res){
   var id = req.params.id;
   Combo.remove({_id: id}, function(error) {
-    if (error) return res.status(404).send({message: 'Combo could not be deleted.'})
+    if (error) return res.status(404).send({message: 'Combo could not be deleted.'});
     return res.status(204);
   });
 }
@@ -64,4 +64,4 @@ module.exports = {
   updateCombo: updateCombo,
   getCombo: getCombo,
   deleteCombo: deleteCombo
-}
+};

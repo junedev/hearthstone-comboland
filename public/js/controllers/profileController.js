@@ -11,5 +11,5 @@ function ProfileController(User, Combo, $routeParams, $location) {
 
   this.showCombo = function(combo){
     $location.url("/combos/" + combo._id);
-  }
+  };
 }

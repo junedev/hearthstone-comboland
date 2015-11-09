@@ -10,9 +10,7 @@ function login(req, res) {
     email: req.body.email
   }, function(err, user) {
     if (err) return res.status(500).send(err);
-
     if (!user) return res.status(403).send({ message: 'Wrong login credentials.' });
-
     if (!user.validPassword(req.body.password)) return res.status(403).send({ message: 'Wrong login credentials.' });
 
     var token = jwt.sign({id: user.id}, secret, { expiresInMinutes: 1440 });
@@ -23,7 +21,7 @@ function login(req, res) {
       token: token
     });
   });
-};
+}
 
 function signup(req, res){
   passport.authenticate('local-signup', function(err, user) {

@@ -1,0 +1,60 @@
+.voting {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  text-align: center;
+  p, strong { 
+    font-size: ceil(($font-size-base * 2));
+    height: 30px;
+    line-height: 30px;
+    margin-top: -5px;
+  }
+  .arrow {
+    height: 30px;
+    width: 40px;
+  }
+}
+
+.fancy-button {
+  height: 50px;
+  width: 160px;
+  background-image: url("/images/button-bg.jpg");
+  color: $navbar-default-color;
+  font-size: 25px;
+  font-family: 'Miltonian Tattoo', cursive;
+  margin-bottom: 30px;
+}
+
+.add-button {
+  display: block;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.next-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.enter-button {
+  background-image: url("/images/enter-bg2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  overflow: visible;
+  margin-bottom: 50px;
+}
+
+.delete {
+  cursor: pointer;
+}
+
+@media (max-width: $screen-sm-min) {
+  .enter-button {
+    background-size: 100% auto;
+    h1 {
+      font-size: 20px;
+    }
+  }
+}

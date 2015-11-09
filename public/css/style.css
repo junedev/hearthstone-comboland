@@ -5824,6 +5824,19 @@ textarea {
 .no-margin {
   margin: 0; }
 
+.no-styling {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none; }
+
+.top-margin {
+  margin-top: 30px; }
+
+.bottom-margin {
+  margin-bottom: 30px; }
+
 .navbar-default {
   height: 70px;
   text-shadow: 0px 0px 6px #000;
@@ -5843,6 +5856,10 @@ textarea {
     .navbar-default a.navbar-brand {
       font-size: 20px; } }
 
+@media (min-width: 992px) {
+  .navbar-default {
+    padding-right: 10px;
+    padding-left: 20px; } }
 .big-card {
   margin-top: -20px;
   width: 200px;
@@ -5877,6 +5894,36 @@ textarea {
   font-size: 20px;
   margin-bottom: 30px; }
 
+ul.dropdown-menu {
+  position: absolute;
+  width: 100%; }
+
+.typeahead-container {
+  position: relative; }
+
+.headline {
+  color: #FCD144;
+  text-shadow: 0px 0px 6px #000;
+  font-size: 31px;
+  letter-spacing: 2px;
+  line-height: 64px; }
+
+.landing-page {
+  max-width: 650px;
+  margin: 0 auto; }
+  .landing-page p {
+    font-size: 20px; }
+
+.landing-wrapper {
+  position: relative; }
+
+@media (max-width: 768px) {
+  .logo {
+    width: 300px;
+    height: auto; }
+
+  .landing-page p {
+    font-size: 15px; } }
 .voting {
   position: absolute;
   top: 0px;
@@ -5890,26 +5937,6 @@ textarea {
   .voting .arrow {
     height: 30px;
     width: 40px; }
-
-.no-styling {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  background: none; }
-
-.top-margin {
-  margin-top: 30px; }
-
-.bottom-margin {
-  margin-bottom: 30px; }
-
-ul.dropdown-menu {
-  position: absolute;
-  width: 100%; }
-
-.typeahead-container {
-  position: relative; }
 
 .fancy-button {
   height: 50px;
@@ -5930,13 +5957,6 @@ ul.dropdown-menu {
   margin: 0 auto;
   margin-top: 30px; }
 
-.headline {
-  color: #FCD144;
-  text-shadow: 0px 0px 6px #000;
-  font-size: 31px;
-  letter-spacing: 2px;
-  line-height: 64px; }
-
 .enter-button {
   background-image: url("/images/enter-bg2.png");
   background-repeat: no-repeat;
@@ -5945,30 +5965,10 @@ ul.dropdown-menu {
   overflow: visible;
   margin-bottom: 50px; }
 
-.landing-page {
-  max-width: 650px;
-  margin: 0 auto; }
-  .landing-page p {
-    font-size: 20px; }
-
-.landing-wrapper {
-  position: relative; }
-
 .delete {
   cursor: pointer; }
 
-@media (min-width: 992px) {
-  .navbar-default {
-    padding-right: 10px;
-    padding-left: 20px; } }
 @media (max-width: 768px) {
-  .logo {
-    width: 300px;
-    height: auto; }
-
-  .landing-page p {
-    font-size: 15px; }
-
   .enter-button {
     background-size: 100% auto; }
     .enter-button h1 {

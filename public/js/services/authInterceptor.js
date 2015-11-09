@@ -9,7 +9,6 @@ function AuthInterceptor(TokenService) {
     
     request: function(config) {
       var token = TokenService.getToken();
-      console.log(token);
 
       if (token) {
         config.headers.Authorization = 'Bearer ' + token;

@@ -1,3 +1,5 @@
+// --- GENERAL SETTINGS ---
+
 body {
   background-image: url("/images/body-content.jpg");
   background-repeat: repeat-y;
@@ -18,6 +20,9 @@ textarea {
   max-width: 100%;
 }
 
+
+// --- UTILITY ---
+
 .adjust-margin {
   margin-top: 5px;
   margin-right: 35px;
@@ -25,95 +30,6 @@ textarea {
 
 .no-margin {
   margin: 0;
-}
-
-.navbar-default {
-  height: $navbar-height;
-  text-shadow: 0px 0px 6px #000;
-  margin: 30px 0;
-  background: none;
-  border: none;
-  background-image: url("/images/nav-bg3.png");
-  background-repeat: no-repeat;
-  background-size: 100% $navbar-height;
-
-  a.navbar-brand {
-    font-size: ceil(($font-size-base * 2));
-    &, &:active, &.active {
-      &:focus, &.focus {
-        color: $navbar-default-color;
-      }
-    }
-  }
-
-  a {
-    font-size: ceil(($font-size-base * 1.5));
-  }
-
-  @media (max-width: $screen-sm-min){
-    a.navbar-brand {
-      font-size: 20px;
-    }
-  }
-}
-
-
-.big-card {
-  margin-top: -20px;
-  width: 200px;
-  height: auto;
-}
-
-.small-card {
-  margin-top: -20px;
-  width: 150px;
-  height: auto;
-}
-
-.image-outer-container {
-  border: 8px solid transparent;
-  display: inline-block;
-  position: relative;
-  border-width: 17px 20px;
-  &.panel {
-    margin: 0;
-  }
-  cursor: pointer;
-}
-
-.panel {
-  border: 8px solid #dec79b;
-  border-width: 17px 20px;
-  border-image: url("/images/artwork-frameV2.png") 17 20 stretch;
-  background: rgba(255,255,255,0.2);
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.panel.clickable:hover {
-  background: rgba(255,255,255,0.4);
-}
-
-.bio {
-  font-size: 20px;
-  margin-bottom: 30px;
-}
-
-.voting {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  text-align: center;
-  p, strong { 
-    font-size: ceil(($font-size-base * 2));
-    height: 30px;
-    line-height: 30px;
-    margin-top: -5px;
-  }
-  .arrow {
-    height: 30px;
-    width: 40px;
-  }
 }
 
 .no-styling {
@@ -130,93 +46,4 @@ textarea {
 
 .bottom-margin {
   margin-bottom: 30px;
-}
-
-ul.dropdown-menu {
-  position: absolute;
-  width: 100%;
-}
-
-.typeahead-container {
-  position: relative;
-}
-
-.fancy-button {
-  height: 50px;
-  width: 160px;
-  background-image: url("/images/button-bg.jpg");
-  color: $navbar-default-color;
-  font-size: 25px;
-  font-family: 'Miltonian Tattoo', cursive;
-  margin-bottom: 30px;
-}
-
-.add-button {
-  display: block;
-  margin-left: 20px;
-  margin-top: 10px;
-}
-
-.next-button {
-  display: block;
-  margin: 0 auto;
-  margin-top: 30px;
-}
-
-.headline {
-  color: $navbar-default-color;
-  text-shadow: 0px 0px 6px #000;
-  font-size: ceil(($font-size-base * 2.2));
-  letter-spacing: 2px;
-  line-height:64px;
-}
-
-.enter-button {
-  background-image: url("/images/enter-bg2.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  overflow: visible;
-  margin-bottom: 50px;
-}
-
-.landing-page {
-  max-width: 650px;
-  margin: 0 auto;
-  p {
-    font-size: 20px;
-  }
-}
-
-.landing-wrapper {
-  position: relative;
-}
-
-.delete {
-  cursor: pointer;
-}
-
-@media (min-width: $screen-md-min) {
-  .navbar-default {
-    padding-right: 10px;
-    padding-left: 20px;
-  }
-}
-
-@media (max-width: $screen-sm-min) {
-  .logo {
-    width: 300px;
-    height: auto;
-  }
-
-  .landing-page p {
-    font-size: 15px;
-  }
-
-  .enter-button {
-    background-size: 100% auto;
-    h1 {
-      font-size: 20px;
-    }
-  }
 }

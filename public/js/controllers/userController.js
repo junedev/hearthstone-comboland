@@ -1,8 +1,9 @@
 angular
   .module('comboApp')
-  .controller('UserController', UserController)
+  .controller('UserController', UserController);
 
-UserController.$inject = ['User', 'TokenService','$location']
+UserController.$inject = ['User', 'TokenService','$location'];
+
 function UserController(User, TokenService, $location) {
   var self = this;
   self.currentUser = null;
@@ -27,22 +28,22 @@ function UserController(User, TokenService, $location) {
     User.login(self.existingUser, redirect, showMessage);
     self.existingUser = null;
     self.newUser = null;
-  }
+  };
 
   self.signup = function() {
     User.signup(self.newUser, redirect, showMessage);
     self.existingUser = null;
     self.newUser = null;
-  }
+  };
 
   self.logout = function() {
     TokenService.removeToken();
     self.currentUser = null;
-  }
+  };
 
   self.isLoggedIn = function() {
     return TokenService.isLoggedIn();
-  }
+  };
 
   if (self.isLoggedIn()) {
     self.currentUser = TokenService.parseJwt();

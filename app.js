@@ -27,15 +27,16 @@ app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 
 app.use('/api', expressJWT({secret: secret}).unless({
-     path: ['/api/users/login', '/api/users/signup']
+     path: ['/api/users/login', '/api/users/signup', /\/api\/combos\/?$/]
   })
 );
 
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {
-    res.status(401).json({message: 'You need an authorization token to view confidential information.'});
+    res.status(401).json({message: 'You need an authorization token to view this information.'});
+  } else {
+    next();
   }
-  next();
 });
 
 require('./config/passport')(passport);
@@ -43,11 +44,11 @@ app.use(passport.initialize());
 
 app.get("/", function(req,res){
  res.render("index.html");
-})
+});
 
 app.use(require('./config/routes'));
 
 app.listen(port, function(err){
   if(err) console.log(err);
-  console.log("Hearthstone Comboland running on port " + port)
+  console.log("Hearthstone Comboland running on port " + port);
 });
