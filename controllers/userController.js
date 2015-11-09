@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var jwt = require('jsonwebtoken');
-var secret = "23epahlq562dnf5as3";
+var secret = process.env.HEARTHSTONE_SECRET;
 var passport = require('passport');
 
 function login(req, res) {

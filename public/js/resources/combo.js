@@ -4,11 +4,11 @@ angular.module("comboApp")
 Combo.$inject = ["$resource"];
 
 function Combo($resource){
-  var ComboResource = $resource("/combos/:id", 
+  var ComboResource = $resource("/api/combos/:id", 
     {id: "@_id"},
     {
       "update": {method: "PUT"},
-      "heros": {method: "GET", url: "/combos/heros", isArray: true }
+      "heros": {method: "GET", url: "/api/combos/heros", isArray: true }
     }
   );
 

@@ -7,7 +7,7 @@ var database = require("./database");
 var schedule = require("node-schedule");
 
 var app = express();
-var secret = "combolandSecret";
+var secret = process.env.HEARTHSTONE_SECRET;
 var port = process.env.PORT || 9000;
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -26,10 +26,10 @@ app.use(express.static(__dirname + '/public'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 
-app.use('/api', expressJWT({secret: secret})
-  .unless({
-     path: ['/users/login', '/users/signup']
-  }));
+app.use('/api', expressJWT({secret: secret}).unless({
+     path: ['/api/users/login', '/api/users/signup']
+  })
+);
 
 app.use(function (err, req, res, next) {
   if (err.name === 'UnauthorizedError') {

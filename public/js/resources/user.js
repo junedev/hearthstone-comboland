@@ -6,15 +6,15 @@ User.$inject = ['$resource'];
 
 function User($resource) {
   return $resource(
-    '/users/:id',
+    '/api/users/:id',
     {id: '@id'},
     {
       "login": { 
-        url:"/users/login",
+        url:"/api/users/login",
         method: "POST"
       },
       "signup": {
-        url: "/users/signup",
+        url: "/api/users/signup",
         method: "POST"
       }
     }

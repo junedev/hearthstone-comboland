@@ -5,28 +5,28 @@ var comboController = require('../controllers/comboController');
 var cardController = require('../controllers/cardController');
 var userController = require('../controllers/userController');
 
-router.route('/combos/heros')
+router.route('/api/combos/heros')
   .get(comboController.getHeros)
 
-router.route('/combos')
+router.route('/api/combos')
   .get(comboController.getAll)
   .post(comboController.createCombo)
 
-router.route('/combos/:id')
+router.route('/api/combos/:id')
   .get(comboController.getCombo)
   .put(comboController.updateCombo)
   .delete(comboController.deleteCombo)
 
-router.route('/cards/:className')
+router.route('/api/cards/:className')
   .get(cardController.getCards)
 
-router.route('/users/login')
+router.route('/api/users/login')
   .post(userController.login)
 
-router.route('/users/signup')
+router.route('/api/users/signup')
   .post(userController.signup)
 
-router.route('/users/:id')
+router.route('/api/users/:id')
   .get(userController.getUser)
 
 module.exports = router
