@@ -30,6 +30,18 @@
   }
 }
 
+@media (max-width: $screen-sm-min) {
+  .navbar-collapse.in li {
+    padding-top: 15px;
+    height: 70px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    background-image: url("/images/nav-bg3.png");
+    background-size: 100% 100%;
+  }
+}
+
 @media (min-width: $screen-md-min) {
   .navbar-default {
     padding-right: 10px;

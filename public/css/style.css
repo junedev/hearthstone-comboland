@@ -5856,6 +5856,15 @@ textarea {
     .navbar-default a.navbar-brand {
       font-size: 20px; } }
 
+@media (max-width: 768px) {
+  .navbar-collapse.in li {
+    padding-top: 15px;
+    height: 70px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    background-image: url("/images/nav-bg3.png");
+    background-size: 100% 100%; } }
 @media (min-width: 992px) {
   .navbar-default {
     padding-right: 10px;
