@@ -192,6 +192,10 @@ ul.dropdown-menu {
   position: relative;
 }
 
+.delete {
+  cursor: pointer;
+}
+
 @media (min-width: $screen-md-min) {
   .navbar-default {
     padding-right: 10px;

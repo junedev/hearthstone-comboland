@@ -15,6 +15,7 @@ router.route('/combos')
 router.route('/combos/:id')
   .get(comboController.getCombo)
   .put(comboController.updateCombo)
+  .delete(comboController.deleteCombo)
 
 router.route('/cards/:className')
   .get(cardController.getCards)

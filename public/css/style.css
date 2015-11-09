@@ -5954,6 +5954,9 @@ ul.dropdown-menu {
 .landing-wrapper {
   position: relative; }
 
+.delete {
+  cursor: pointer; }
+
 @media (min-width: 992px) {
   .navbar-default {
     padding-right: 10px;

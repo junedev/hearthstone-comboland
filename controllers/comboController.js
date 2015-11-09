@@ -49,10 +49,19 @@ function getCombo(req, res){
   });
 }
 
+function deleteCombo(req, res){
+  var id = req.params.id;
+  Combo.remove({_id: id}, function(error) {
+    if (error) return res.status(404).send({message: 'Combo could not be deleted.'})
+    return res.status(204);
+  });
+}
+
 module.exports = {
   getAll: getAll,
   getHeros: getHeros,
   createCombo: createCombo,
   updateCombo: updateCombo,
-  getCombo: getCombo
+  getCombo: getCombo,
+  deleteCombo: deleteCombo
 }

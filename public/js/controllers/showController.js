@@ -1,9 +1,9 @@
 angular.module("comboApp")
   .controller("ShowController", ShowController);
 
-ShowController.$inject = ["Combo", "$routeParams", "TokenService"];
+ShowController.$inject = ["Combo", "$routeParams", "TokenService", "$location"];
 
-function ShowController(Combo, $routeParams, TokenService){
+function ShowController(Combo, $routeParams, TokenService, $location){
   var self = this;
   self.current = Combo.get({id: $routeParams.comboId});
   self.newCommentText = "";
@@ -25,10 +25,12 @@ function ShowController(Combo, $routeParams, TokenService){
       });
     }
   }
-}
 
-  // function deleteCombo(combo){
-  //   Combo.delete({id:combo._id});
-  //   var index = self.all.indexOf(combo);
-  //   self.all.splice(index, 1);
-  // }
+  self.deleteCombo = function(){
+    if(self.current.user.id==TokenService.currentUserId()){
+      Combo.delete({id: self.current._id});
+      $location.path("/combos");
+    }
+  }
+  
+}
