@@ -6,6 +6,7 @@ UserController.$inject = ['User', 'TokenService','$location']
 function UserController(User, TokenService, $location) {
   var self = this;
   self.currentUser = null;
+  self.existingUser = null;
   self.newUser = null;
   self.message = null;
 
@@ -23,11 +24,15 @@ function UserController(User, TokenService, $location) {
   }
 
   self.login = function() {
-    User.login(self.newUser, redirect, showMessage);
+    User.login(self.existingUser, redirect, showMessage);
+    self.existingUser = null;
+    self.newUser = null;
   }
 
   self.signup = function() {
     User.signup(self.newUser, redirect, showMessage);
+    self.existingUser = null;
+    self.newUser = null;
   }
 
   self.logout = function() {
