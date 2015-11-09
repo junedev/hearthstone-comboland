@@ -1,6 +1,3 @@
-# hearthstone-comboland
-Share and discuss your favourite combination of cards in Blizzards Hearthstone.
-
 # Hearthstone Comboland
 <i>1-2 weeks project - started September 14, 2015</i>
 
@@ -46,7 +43,11 @@ When adding a new combination the user has two choices to select the cards to ad
 ```html
 <div class="form-group typeahead-container">
   <label>Search by name</label>
-  <input type="text" ng-model="searchedCard" typeahead="card as card.name for card in combos.cards | filter:{name:$viewValue} | limitTo:8" typeahead-template-url="templates/customTypeahead.html" typeahead-on-select="combos.currentCard=searchedCard; selectedCardIndex='';" class="form-control bottom-margin input-lg">
+  <input type="text" ng-model="searchedCard" 
+  typeahead="card as card.name for card in combos.cards | filter:{name:$viewValue} | limitTo:8" 
+  typeahead-template-url="templates/customTypeahead.html"
+  typeahead-on-select="combos.currentCard=searchedCard; selectedCardIndex='';" 
+  class="form-control bottom-margin input-lg">
 </div>
 ```
 
